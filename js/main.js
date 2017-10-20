@@ -3,23 +3,26 @@
 // config
 
 // uncomment to use your locally running signalling server
-// var serverIP = "http://localhost:2013";
+var serverIP = "http://localhost:2013";
 
 //my signalling server
-var serverIP = "http://45.55.61.164:2013/";
+// var serverIP = "http://45.55.61.164:2013/";
 
 // RTCPeerConnection Options
-var server = {
-    // Uses Google's STUN server
-    iceServers: [{
-        "url": "stun:piratefsh@45.55.61.164"
-    }, 
-    {
-    // Use my TURN server on DigitalOcean
-        'url': 'turn:piratefsh@45.55.61.164',
-        'credential': 'password'
-    }]
-};
+// var server = {
+//     // Uses Google's STUN server
+//     iceServers: [{
+//         "url": "stun:piratefsh@45.55.61.164"
+//     }, 
+//     {
+//     // Use my TURN server on DigitalOcean
+//         'url': 'turn:piratefsh@45.55.61.164',
+//         'credential': 'password'
+//     }]
+// };
+
+var server = {};
+
 // various other development IPs
 // var serverIP = "http://192.168.43.241:2013";
 // var serverIP = "http://10.0.11.196:2013";
@@ -107,6 +110,7 @@ var sdpConstraints = {
 }
 
 function connect(room) {
+    console.log(server);
     // create peer connection
     localPeerConnection = new RTCPeerConnection(server);
 
